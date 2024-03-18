@@ -169,7 +169,7 @@ export default class {
         ],
       });
 
-    if (command.accessableby == Accessableby.Premium) {
+    if (command.accessableby == Accessableby.Premium && interaction.user.id !== client.owner) {
       const user = client.premiums.get(interaction.user.id);
       if (!user || !user.isPremium) {
         const embed = new EmbedBuilder()
