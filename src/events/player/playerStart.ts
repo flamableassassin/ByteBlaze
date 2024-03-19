@@ -106,11 +106,6 @@ export default class {
           value: `${song!.requester}`,
           inline: true,
         },
-        {
-          name: `${client.i18n.get(language, "event.player", "download_title")}`,
-          value: `**[${song!.title} - 000tube.com](https://www.000tube.com/watch?v=${song?.identifier})**`,
-          inline: false,
-        },
       ])
       .setColor(client.color)
       .setThumbnail(`https://img.youtube.com/vi/${track.identifier}/hqdefault.jpg`)

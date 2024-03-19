@@ -70,11 +70,6 @@ export default class implements Command {
         inline: true,
       },
       {
-        name: `${client.i18n.get(handler.language, "event.player", "download_title")}`,
-        value: `**[${song!.title}](https://www.000tube.com/watch?v=${song?.identifier})**`,
-        inline: false,
-      },
-      {
         name: `${client.i18n.get(handler.language, "command.music", "np_current_duration", {
           current_duration: CurrentDuration,
           total_duration: TotalDuration,
