@@ -50,7 +50,7 @@ export default class implements Command {
 
     let data = { guildId: handler.guild!.id } as any
 
-    switch (this.name[0]) {
+    switch (handler.args[0]) {
       case "3D":
         data["playerOptions"] = {
           filters: {
