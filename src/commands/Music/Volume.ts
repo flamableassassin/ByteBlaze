@@ -24,6 +24,8 @@ export default class implements Command {
       description: "The amount of volume to set the bot to.",
       type: ApplicationCommandOptionType.Number,
       required: true,
+      min_value: 0,
+      max_value: 100
     },
   ];
 

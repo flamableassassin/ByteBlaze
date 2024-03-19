@@ -4,6 +4,7 @@ import { Manager } from "../../manager.js";
 import { Accessableby, Command } from "../../structures/Command.js";
 import { CommandHandler } from "../../structures/CommandHandler.js";
 
+
 export default class implements Command {
   public name = ["speed"];
   public description = "Sets the speed of the song.";
@@ -34,7 +35,7 @@ export default class implements Command {
       return handler.editReply({
         embeds: [
           new EmbedBuilder()
-            .setDescription(`${client.i18n.get(handler.language, "command.music", "number_invalid")}`)
+            .setDescription(client.i18n.get(handler.language, "command.music", "number_invalid"))
             .setColor(client.color),
         ],
       });
@@ -43,7 +44,7 @@ export default class implements Command {
       return handler.editReply({
         embeds: [
           new EmbedBuilder()
-            .setDescription(`${client.i18n.get(handler.language, "command.filter", "filter_greater")}`)
+            .setDescription(client.i18n.get(handler.language, "command.filter", "filter_greater"))
             .setColor(client.color),
         ],
       });
@@ -51,18 +52,20 @@ export default class implements Command {
       return handler.editReply({
         embeds: [
           new EmbedBuilder()
-            .setDescription(`${client.i18n.get(handler.language, "command.filter", "filter_less")}`)
+            .setDescription(client.i18n.get(handler.language, "command.filter", "filter_less"))
             .setColor(client.color),
         ],
       });
 
-    const player = await client.manager.players.get(handler.guild!.id);
+    const player = client.manager.players.get(handler.guild!.id);
 
+    const vol = player?.volume ?? client.config.lavalink.DEFAULT_VOLUME ?? 100
     const data = {
       guildId: handler.guild!.id,
       playerOptions: {
         filters: {
           timescale: { speed: Number(value) },
+          volume: vol
         },
       },
     };
@@ -73,9 +76,9 @@ export default class implements Command {
 
     const embed = new EmbedBuilder()
       .setDescription(
-        `${client.i18n.get(handler.language, "command.filter", "speed_on", {
+        client.i18n.get(handler.language, "command.filter", "speed_on", {
           amount: value,
-        })}`
+        })
       )
       .setColor(client.color);
     await delay(2000);

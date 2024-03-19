@@ -22,6 +22,8 @@ export default class implements Command {
       description: "The amount of rate to set the song to.",
       type: ApplicationCommandOptionType.Integer,
       required: true,
+      min_value: 0,
+      max_value: 10
     },
   ];
 
