@@ -48,357 +48,316 @@ export default class implements Command {
 
     player?.data.set("filter-mode", this.name[0]);
 
-    let data = { guildId: handler.guild!.id } as UpdatePlayerInfo
+    let data = { guildId: handler.guild!.id } as any
 
     switch (this.name[0]) {
       case "3D":
-        data = {
-          playerOptions: {
-            filters: {
-              rotation: { rotationHz: 0.2 },
-            },
+        data["playerOptions"] = {
+          filters: {
+            rotation: { rotationHz: 0.2 },
           },
         };
         break;
-      case "Bass":
       case "Bassboost":
-        data = {
-          playerOptions: {
-            filters: {
-              equalizer: [
-                { band: 0, gain: 0.1 },
-                { band: 1, gain: 0.1 },
-                { band: 2, gain: 0.05 },
-                { band: 3, gain: 0.05 },
-                { band: 4, gain: -0.05 },
-                { band: 5, gain: -0.05 },
-                { band: 6, gain: 0 },
-                { band: 7, gain: -0.05 },
-                { band: 8, gain: -0.05 },
-                { band: 9, gain: 0 },
-                { band: 10, gain: 0.05 },
-                { band: 11, gain: 0.05 },
-                { band: 12, gain: 0.1 },
-                { band: 13, gain: 0.1 },
-              ],
-            },
+        data["playerOptions"] = {
+          filters: {
+            equalizer: [
+              { band: 0, gain: 0.1 },
+              { band: 1, gain: 0.1 },
+              { band: 2, gain: 0.05 },
+              { band: 3, gain: 0.05 },
+              { band: 4, gain: -0.05 },
+              { band: 5, gain: -0.05 },
+              { band: 6, gain: 0 },
+              { band: 7, gain: -0.05 },
+              { band: 8, gain: -0.05 },
+              { band: 9, gain: 0 },
+              { band: 10, gain: 0.05 },
+              { band: 11, gain: 0.05 },
+              { band: 12, gain: 0.1 },
+              { band: 13, gain: 0.1 },
+            ],
           },
         };
         break;
       case "China":
-        data = {
-          playerOptions: {
-            filters: {
-              timescale: {
-                speed: 0.75,
-                pitch: 1.25,
-                rate: 1.25,
-              },
+        data["playerOptions"] = {
+          filters: {
+            timescale: {
+              speed: 0.75,
+              pitch: 1.25,
+              rate: 1.25,
             },
           },
         }
         break;
 
       case "Chipmunk":
-        data = {
-          playerOptions: {
-            filters: {
-              timescale: {
-                speed: 1.05,
-                pitch: 1.35,
-                rate: 1.25,
-              },
+        data["playerOptions"] = {
+          filters: {
+            timescale: {
+              speed: 1.05,
+              pitch: 1.35,
+              rate: 1.25,
             },
           },
         }
         break;
       case "Darthvader":
-        data = {
-          playerOptions: {
-            filters: {
-              timescale: {
-                speed: 0.975,
-                pitch: 0.5,
-                rate: 0.8,
-              },
+        data["playerOptions"] = {
+          filters: {
+            timescale: {
+              speed: 0.975,
+              pitch: 0.5,
+              rate: 0.8,
             },
           },
         }
         break;
       case "Daycore":
-        data = {
-          playerOptions: {
-            filters: {
-              equalizer: [
-                { band: 0, gain: 0 },
-                { band: 1, gain: 0 },
-                { band: 2, gain: 0 },
-                { band: 3, gain: 0 },
-                { band: 4, gain: 0 },
-                { band: 5, gain: 0 },
-                { band: 6, gain: 0 },
-                { band: 7, gain: 0 },
-                { band: 8, gain: -0.25 },
-                { band: 9, gain: -0.25 },
-                { band: 10, gain: -0.25 },
-                { band: 11, gain: -0.25 },
-                { band: 12, gain: -0.25 },
-                { band: 13, gain: -0.25 },
-              ],
-              timescale: {
-                pitch: 0.63,
-                rate: 1.05,
-              },
+        data["playerOptions"] = {
+          filters: {
+            equalizer: [
+              { band: 0, gain: 0 },
+              { band: 1, gain: 0 },
+              { band: 2, gain: 0 },
+              { band: 3, gain: 0 },
+              { band: 4, gain: 0 },
+              { band: 5, gain: 0 },
+              { band: 6, gain: 0 },
+              { band: 7, gain: 0 },
+              { band: 8, gain: -0.25 },
+              { band: 9, gain: -0.25 },
+              { band: 10, gain: -0.25 },
+              { band: 11, gain: -0.25 },
+              { band: 12, gain: -0.25 },
+              { band: 13, gain: -0.25 },
+            ],
+            timescale: {
+              pitch: 0.63,
+              rate: 1.05,
             },
           },
         }
         break;
       case "Doubletime":
-        data = {
-          playerOptions: {
-            filters: {
-              timescale: {
-                speed: 1.165,
-              },
+        data["playerOptions"] = {
+          filters: {
+            timescale: {
+              speed: 1.165,
             },
           },
         }
         break;
       case "Karaoke":
-        data = {
-          playerOptions: {
-            filters: {
-              karaoke: {
-                level: 1.0,
-                monoLevel: 1.0,
-                filterBand: 220.0,
-                filterWidth: 100.0,
-              },
+        data["playerOptions"] = {
+          filters: {
+            karaoke: {
+              level: 1.0,
+              monoLevel: 1.0,
+              filterBand: 220.0,
+              filterWidth: 100.0,
             },
           },
         }
         break;
       case "Nightcore":
-        data = {
-          playerOptions: {
-            filters: {
-              timescale: {
-                speed: 1.05,
-                pitch: 1.125,
-                rate: 1.05,
-              },
+        data["playerOptions"] = {
+          filters: {
+            timescale: {
+              speed: 1.05,
+              pitch: 1.125,
+              rate: 1.05,
             },
           },
         }
         break;
       case "Pop":
-        data = {
-          playerOptions: {
-            filters: {
-              equalizer: [
-                { band: 0, gain: 0.65 },
-                { band: 1, gain: 0.45 },
-                { band: 2, gain: -0.45 },
-                { band: 3, gain: -0.65 },
-                { band: 4, gain: -0.35 },
-                { band: 5, gain: 0.45 },
-                { band: 6, gain: 0.55 },
-                { band: 7, gain: 0.6 },
-                { band: 8, gain: 0.6 },
-                { band: 9, gain: 0.6 },
-                { band: 10, gain: 0 },
-                { band: 11, gain: 0 },
-                { band: 12, gain: 0 },
-                { band: 13, gain: 0 },
-              ],
-            },
+        data["playerOptions"] = {
+          filters: {
+            equalizer: [
+              { band: 0, gain: 0.65 },
+              { band: 1, gain: 0.45 },
+              { band: 2, gain: -0.45 },
+              { band: 3, gain: -0.65 },
+              { band: 4, gain: -0.35 },
+              { band: 5, gain: 0.45 },
+              { band: 6, gain: 0.55 },
+              { band: 7, gain: 0.6 },
+              { band: 8, gain: 0.6 },
+              { band: 9, gain: 0.6 },
+              { band: 10, gain: 0 },
+              { band: 11, gain: 0 },
+              { band: 12, gain: 0 },
+              { band: 13, gain: 0 },
+            ],
           },
         }
         break;
       case "reset":
         player?.data.delete("filter-mode");
-        data = {
-          playerOptions: {
-            filters: {},
-          },
+        data["playerOptions"] = {
+          filters: {},
         }
         break;
       case "Slowmotion":
-        data = {
-          playerOptions: {
-            filters: {
-              timescale: {
-                speed: 0.5,
-                pitch: 1.0,
-                rate: 0.8,
-              },
+        data["playerOptions"] = {
+          filters: {
+            timescale: {
+              speed: 0.5,
+              pitch: 1.0,
+              rate: 0.8,
             },
           },
         }
         break;
       case "Soft":
-        data = {
-          playerOptions: {
-            filters: {
-              equalizer: [
-                { band: 0, gain: 0 },
-                { band: 1, gain: 0 },
-                { band: 2, gain: 0 },
-                { band: 3, gain: 0 },
-                { band: 4, gain: 0 },
-                { band: 5, gain: 0 },
-                { band: 6, gain: 0 },
-                { band: 7, gain: 0 },
-                { band: 8, gain: -0.25 },
-                { band: 9, gain: -0.25 },
-                { band: 10, gain: -0.25 },
-                { band: 11, gain: -0.25 },
-                { band: 12, gain: -0.25 },
-                { band: 13, gain: -0.25 },
-              ],
-            },
+        data["playerOptions"] = {
+          filters: {
+            equalizer: [
+              { band: 0, gain: 0 },
+              { band: 1, gain: 0 },
+              { band: 2, gain: 0 },
+              { band: 3, gain: 0 },
+              { band: 4, gain: 0 },
+              { band: 5, gain: 0 },
+              { band: 6, gain: 0 },
+              { band: 7, gain: 0 },
+              { band: 8, gain: -0.25 },
+              { band: 9, gain: -0.25 },
+              { band: 10, gain: -0.25 },
+              { band: 11, gain: -0.25 },
+              { band: 12, gain: -0.25 },
+              { band: 13, gain: -0.25 },
+            ],
           },
         }
         break;
       case "Superbass":
-        data = {
-          playerOptions: {
-            filters: {
-              equalizer: [
-                { band: 0, gain: 0.2 },
-                { band: 1, gain: 0.3 },
-                { band: 2, gain: 0 },
-                { band: 3, gain: 0.8 },
-                { band: 4, gain: 0 },
-                { band: 5, gain: 0.5 },
-                { band: 6, gain: 0 },
-                { band: 7, gain: -0.5 },
-                { band: 8, gain: 0 },
-                { band: 9, gain: 0 },
-                { band: 10, gain: 0 },
-                { band: 11, gain: 0 },
-                { band: 12, gain: 0 },
-                { band: 13, gain: 0 },
-              ],
-            },
+        data["playerOptions"] = {
+          filters: {
+            equalizer: [
+              { band: 0, gain: 0.2 },
+              { band: 1, gain: 0.3 },
+              { band: 2, gain: 0 },
+              { band: 3, gain: 0.8 },
+              { band: 4, gain: 0 },
+              { band: 5, gain: 0.5 },
+              { band: 6, gain: 0 },
+              { band: 7, gain: -0.5 },
+              { band: 8, gain: 0 },
+              { band: 9, gain: 0 },
+              { band: 10, gain: 0 },
+              { band: 11, gain: 0 },
+              { band: 12, gain: 0 },
+              { band: 13, gain: 0 },
+            ],
           },
         }
         break;
       case "Television":
-        data = {
-          playerOptions: {
-            filters: {
-              equalizer: [
-                { band: 0, gain: 0 },
-                { band: 1, gain: 0 },
-                { band: 2, gain: 0 },
-                { band: 3, gain: 0 },
-                { band: 4, gain: 0 },
-                { band: 5, gain: 0 },
-                { band: 6, gain: 0 },
-                { band: 7, gain: 0.65 },
-                { band: 8, gain: 0.65 },
-                { band: 9, gain: 0.65 },
-                { band: 10, gain: 0.65 },
-                { band: 11, gain: 0.65 },
-                { band: 12, gain: 0.65 },
-                { band: 13, gain: 0.65 },
-              ],
-            },
+        data["playerOptions"] = {
+          filters: {
+            equalizer: [
+              { band: 0, gain: 0 },
+              { band: 1, gain: 0 },
+              { band: 2, gain: 0 },
+              { band: 3, gain: 0 },
+              { band: 4, gain: 0 },
+              { band: 5, gain: 0 },
+              { band: 6, gain: 0 },
+              { band: 7, gain: 0.65 },
+              { band: 8, gain: 0.65 },
+              { band: 9, gain: 0.65 },
+              { band: 10, gain: 0.65 },
+              { band: 11, gain: 0.65 },
+              { band: 12, gain: 0.65 },
+              { band: 13, gain: 0.65 },
+            ],
           },
         }
         break;
       case "Treblebass":
-        data = {
-          playerOptions: {
-            filters: {
-              equalizer: [
-                { band: 0, gain: 0.6 },
-                { band: 1, gain: 0.67 },
-                { band: 2, gain: 0.67 },
-                { band: 3, gain: 0 },
-                { band: 4, gain: -0.5 },
-                { band: 5, gain: 0.15 },
-                { band: 6, gain: -0.45 },
-                { band: 7, gain: 0.23 },
-                { band: 8, gain: 0.35 },
-                { band: 9, gain: 0.45 },
-                { band: 10, gain: 0.55 },
-                { band: 11, gain: 0.6 },
-                { band: 12, gain: 0.55 },
-                { band: 13, gain: 0 },
-              ],
-            },
+        data["playerOptions"] = {
+          filters: {
+            equalizer: [
+              { band: 0, gain: 0.6 },
+              { band: 1, gain: 0.67 },
+              { band: 2, gain: 0.67 },
+              { band: 3, gain: 0 },
+              { band: 4, gain: -0.5 },
+              { band: 5, gain: 0.15 },
+              { band: 6, gain: -0.45 },
+              { band: 7, gain: 0.23 },
+              { band: 8, gain: 0.35 },
+              { band: 9, gain: 0.45 },
+              { band: 10, gain: 0.55 },
+              { band: 11, gain: 0.6 },
+              { band: 12, gain: 0.55 },
+              { band: 13, gain: 0 },
+            ],
           },
         }
         break;
       case "Tremolo":
-        data = {
-          playerOptions: {
-            filters: {
-              tremolo: {
-                frequency: 4.0,
-                depth: 0.75,
-              },
+        data["playerOptions"] = {
+          filters: {
+            tremolo: {
+              frequency: 4.0,
+              depth: 0.75,
             },
           },
         }
         break;
       case "Vaporwave":
-        data = {
-          playerOptions: {
-            filters: {
-              equalizer: [
-                { band: 0, gain: 0 },
-                { band: 1, gain: 0 },
-                { band: 2, gain: 0 },
-                { band: 3, gain: 0 },
-                { band: 4, gain: 0 },
-                { band: 5, gain: 0 },
-                { band: 6, gain: 0 },
-                { band: 7, gain: 0 },
-                { band: 8, gain: 0.15 },
-                { band: 9, gain: 0.15 },
-                { band: 10, gain: 0.15 },
-                { band: 11, gain: 0.15 },
-                { band: 12, gain: 0.15 },
-                { band: 13, gain: 0.15 },
-              ],
-              timescale: {
-                pitch: 0.55,
-              },
+        data["playerOptions"] = {
+          filters: {
+            equalizer: [
+              { band: 0, gain: 0 },
+              { band: 1, gain: 0 },
+              { band: 2, gain: 0 },
+              { band: 3, gain: 0 },
+              { band: 4, gain: 0 },
+              { band: 5, gain: 0 },
+              { band: 6, gain: 0 },
+              { band: 7, gain: 0 },
+              { band: 8, gain: 0.15 },
+              { band: 9, gain: 0.15 },
+              { band: 10, gain: 0.15 },
+              { band: 11, gain: 0.15 },
+              { band: 12, gain: 0.15 },
+              { band: 13, gain: 0.15 },
+            ],
+            timescale: {
+              pitch: 0.55,
             },
           },
         }
         break;
       case "Vibrate":
-        data = {
-          playerOptions: {
-            filters: {
-              vibrato: {
-                frequency: 4.0,
-                depth: 0.75,
-              },
-              tremolo: {
-                frequency: 4.0,
-                depth: 0.75,
-              },
+        data["playerOptions"] = {
+          filters: {
+            vibrato: {
+              frequency: 4.0,
+              depth: 0.75,
+            },
+            tremolo: {
+              frequency: 4.0,
+              depth: 0.75,
             },
           },
         }
         break;
       case "Vibrato":
-        data = {
-          playerOptions: {
+        data["playerOptions"] = {
+          vibrato: {
+            frequency: 4.0,
+            depth: 0.75,
+          },
+          filters: {
             vibrato: {
               frequency: 4.0,
               depth: 0.75,
-            },
-            filters: {
-              vibrato: {
-                frequency: 4.0,
-                depth: 0.75,
-              },
             },
           },
         }
