@@ -364,7 +364,15 @@ export default class implements Command {
         break;
     }
 
+    // Preventing the volume from being updated on filter apply
+    if (!data.playerOptions?.filters?.volume) {
+      const vol = player?.volume ?? client.config.lavalink.DEFAULT_VOLUME ?? 100
 
+      if (!Object.hasOwn(data.playerOptions, "filters")) data.playerOptions["filters"] = { volume: vol }
+      else data.playerOptions.filters["volume"] = vol
+    }
+
+    console.log(data);
     await player?.send(data);
 
     const embed = new EmbedBuilder()
