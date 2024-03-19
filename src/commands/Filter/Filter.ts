@@ -1,4 +1,3 @@
-import type { UpdatePlayerInfo } from "shoukaku"
 import { EmbedBuilder, ApplicationCommandOptionType } from "discord.js";
 import delay from "delay";
 import { Manager } from "../../manager.js";
@@ -194,7 +193,7 @@ export default class implements Command {
           },
         }
         break;
-      case "reset":
+      case "Reset":
         player?.data.delete("filter-mode");
         data["playerOptions"] = {
           filters: {},
