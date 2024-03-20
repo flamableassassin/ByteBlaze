@@ -36,7 +36,7 @@ export default class implements Command {
           new EmbedBuilder()
             .setDescription(
               `${client.i18n.get(handler.language, "command.filter", "filter_already", {
-                name: this.name[0],
+                name: handler.args[0],
               })}`
             )
             .setColor(client.color),
@@ -375,7 +375,7 @@ export default class implements Command {
     const embed = new EmbedBuilder()
       .setDescription(
         `${client.i18n.get(handler.language, "command.filter", "filter_on", {
-          name: this.name[0],
+          name: handler.args[0],
         })}`
       )
       .setColor(client.color);
