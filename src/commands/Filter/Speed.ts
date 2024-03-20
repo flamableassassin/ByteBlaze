@@ -23,6 +23,8 @@ export default class implements Command {
       description: "The amount of speed to set the song to.",
       type: ApplicationCommandOptionType.Integer,
       required: true,
+      min_value: 1,
+      max_value: 10
     },
   ];
 
