@@ -12,15 +12,13 @@ export default class implements Command {
   public usage = "<option>";
   public aliases = ["filter"];
   public lavalink = true;
-  public options = [
-    {
-      name: "type",
-      description: "The filter to apply.",
-      type: ApplicationCommandOptionType.String,
-      required: true,
-      choices: ["3D", "Bass", "Bassboost", "China", "Chipmunk", "Darthvader", "Daycore", "Doubletime", "Earrape", "Karaoke", "Nightcore", "Pop", "Reset", "Slowmotion", "Soft", "Superbass", "Television", "Treblebass", "Tremolo", "Vaporwave", "Vibrate", "Vibrato"].map(i => ({ name: i, value: i }))
-    },
-  ];
+  public options = [{
+    name: "type",
+    description: "The filter to apply.",
+    type: ApplicationCommandOptionType.String,
+    required: true,
+    choices: ["3D", "Bassboost", "China", "Chipmunk", "Darthvader", "Daycore", "Doubletime", "Karaoke", "Nightcore", "Pop", "Reset", "Slowmotion", "Soft", "Superbass", "Television", "Treblebass", "Tremolo", "Vaporwave", "Vibrate", "Vibrato"].map(i => ({ name: i, value: i }))
+  }];
   public playerCheck = true;
   public usingInteraction = true;
   public sameVoiceCheck = true;
@@ -32,7 +30,7 @@ export default class implements Command {
     const player = client.manager.players.get(handler.guild!.id);
 
     // Checking if filter is applied already
-    if (player?.data.get("filter-mode") == this.name[0])
+    if (player?.data.get("filter-mode") == handler.args[0])
       return handler.editReply({
         embeds: [
           new EmbedBuilder()
@@ -45,7 +43,7 @@ export default class implements Command {
         ],
       });
 
-    player?.data.set("filter-mode", this.name[0]);
+    player?.data.set("filter-mode", handler.args[0]);
 
     let data = { guildId: handler.guild!.id } as any
 
