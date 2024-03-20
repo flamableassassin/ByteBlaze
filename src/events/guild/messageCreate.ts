@@ -7,7 +7,7 @@ import {
   CheckPermissionResultInterface,
   CheckPermissionServices,
 } from "../../services/CheckPermissionService.js";
-import type { CommandHandler } from "../../structures/CommandHandler.js";
+import { CommandHandler } from "../../structures/CommandHandler.js";
 import { Accessableby } from "../../structures/Command.js";
 import { RatelimitReplyService } from "../../services/RatelimitReplyService.js";
 import { RateLimitManager } from "@sapphire/ratelimits";
