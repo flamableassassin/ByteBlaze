@@ -2,7 +2,7 @@ import { ApplicationCommandOptionType, EmbedBuilder } from "discord.js";
 import { Manager } from "../../manager.js";
 import { KazagumoTrack } from "../../lib/main.js";
 import { Accessableby, Command } from "../../structures/Command.js";
-import { CommandHandler } from "../../structures/CommandHandler.js";
+import type { CommandHandler } from "../../structures/CommandHandler.js";
 
 const TrackAdd: KazagumoTrack[] = [];
 const TrackExist: string[] = [];

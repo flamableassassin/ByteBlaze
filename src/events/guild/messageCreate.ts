@@ -7,7 +7,7 @@ import {
   CheckPermissionResultInterface,
   CheckPermissionServices,
 } from "../../services/CheckPermissionService.js";
-import { CommandHandler } from "../../structures/CommandHandler.js";
+import type { CommandHandler } from "../../structures/CommandHandler.js";
 import { Accessableby } from "../../structures/Command.js";
 import { RatelimitReplyService } from "../../services/RatelimitReplyService.js";
 import { RateLimitManager } from "@sapphire/ratelimits";
@@ -47,31 +47,31 @@ export default class {
         })
         .setColor(client.color).setDescription(stripIndents`
           ${client.i18n.get(language, "event.message", "intro1", {
-            bot: message.guild!.members.me!.displayName,
-          })}
+          bot: message.guild!.members.me!.displayName,
+        })}
           ${client.i18n.get(language, "event.message", "intro2")}
           ${client.i18n.get(language, "event.message", "intro3")}
           ${client.i18n.get(language, "event.message", "prefix", {
-            prefix: `\`${PREFIX}\` or \`/\``,
-          })}
+          prefix: `\`${PREFIX}\` or \`/\``,
+        })}
           ${client.i18n.get(language, "event.message", "help1", {
-            help: `\`${PREFIX}help\` or \`/help\``,
-          })}
+          help: `\`${PREFIX}help\` or \`/help\``,
+        })}
           ${client.i18n.get(language, "event.message", "help2", {
-            botinfo: `\`${PREFIX}status\` or \`/status\``,
-          })}
+          botinfo: `\`${PREFIX}status\` or \`/status\``,
+        })}
           ${client.i18n.get(language, "event.message", "ver", {
-            botver: client.metadata.version,
-          })}
+          botver: client.metadata.version,
+        })}
           ${client.i18n.get(language, "event.message", "djs", {
-            djsver: JSON.parse(await fs.readFileSync("package.json", "utf-8")).dependencies["discord.js"],
-          })}
+          djsver: JSON.parse(await fs.readFileSync("package.json", "utf-8")).dependencies["discord.js"],
+        })}
           ${client.i18n.get(language, "event.message", "lavalink", {
-            aver: client.metadata.autofix,
-          })}
+          aver: client.metadata.autofix,
+        })}
           ${client.i18n.get(language, "event.message", "codename", {
-            codename: client.metadata.codename,
-          })}
+          codename: client.metadata.codename,
+        })}
           `);
       await message.reply({ embeds: [mention_embed] });
       return;
@@ -129,9 +129,9 @@ export default class {
           permissionResult.channel == "Self"
             ? selfErrorString
             : `${client.i18n.get(language, "error", "no_perms_channel", {
-                perm: permissionResult.result,
-                channel: permissionResult.channel,
-              })}`
+              perm: permissionResult.result,
+              channel: permissionResult.channel,
+            })}`
         )
         .setColor(client.color);
       const dmChannel =
@@ -257,8 +257,7 @@ export default class {
 
       client.logger.info(
         import.meta.url,
-        `[COMMAND] ${command.name.join("-")} used by ${
-          message.author.username
+        `[COMMAND] ${command.name.join("-")} used by ${message.author.username
         } from ${message.guild?.name} (${message.guild?.id})`
       );
 

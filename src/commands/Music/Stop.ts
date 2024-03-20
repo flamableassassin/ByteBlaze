@@ -1,7 +1,7 @@
 import { Manager } from "../../manager.js";
 import { EmbedBuilder } from "discord.js";
 import { Accessableby, Command } from "../../structures/Command.js";
-import { CommandHandler } from "../../structures/CommandHandler.js";
+import type { CommandHandler } from "../../structures/CommandHandler.js";
 import { KazagumoPlayer } from "../../lib/main.js";
 
 // Main code

@@ -2,7 +2,7 @@ import { ApplicationCommandOptionType, EmbedBuilder, Message } from "discord.js"
 import humanizeDuration from "humanize-duration";
 import { Manager } from "../../manager.js";
 import { Accessableby, Command } from "../../structures/Command.js";
-import { CommandHandler } from "../../structures/CommandHandler.js";
+import type { CommandHandler } from "../../structures/CommandHandler.js";
 
 export default class implements Command {
   public name = ["pl-info"];
@@ -70,19 +70,17 @@ export default class implements Command {
         },
         {
           name: `${client.i18n.get(handler.language, "command.playlist", "info_des")}`,
-          value: `${
-            info.description === null || info.description === "null"
+          value: `${info.description === null || info.description === "null"
               ? client.i18n.get(handler.language, "command.playlist", "no_des")
               : info.description
-          }`,
+            }`,
         },
         {
           name: `${client.i18n.get(handler.language, "command.playlist", "info_private")}`,
-          value: `${
-            info.private
+          value: `${info.private
               ? client.i18n.get(handler.language, "command.playlist", "public")
               : client.i18n.get(handler.language, "command.playlist", "private")
-          }`,
+            }`,
         },
         {
           name: `${client.i18n.get(handler.language, "command.playlist", "info_created")}`,

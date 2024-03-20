@@ -4,7 +4,7 @@ import { stripIndents } from "common-tags";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { Accessableby, Command } from "../../structures/Command.js";
-import { CommandHandler } from "../../structures/CommandHandler.js";
+import type { CommandHandler } from "../../structures/CommandHandler.js";
 import { Manager } from "../../manager.js";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -58,18 +58,15 @@ export default class implements Command {
       embed.setDescription(stripIndents`
         ${eString.name} \`${command.name.join("-")}\`
         ${eString.des} \`${command.description || eString.desNone}\`
-        ${eString.usage} ${
-          command.usage
-            ? `\`${handler.prefix}${
-                handler.interaction ? command.name.join(" ") : command.name.join("-")
-              } ${command.usage}\``
-            : `\`${eString.usageNone}\``
+        ${eString.usage} ${command.usage
+          ? `\`${handler.prefix}${handler.interaction ? command.name.join(" ") : command.name.join("-")
+          } ${command.usage}\``
+          : `\`${eString.usageNone}\``
         }
         ${eString.access} \`${command.accessableby}\`
-        ${eString.aliases} \`${
-          command.aliases && command.aliases.length !== 0
-            ? command.aliases.join(", ") + eString.aliasesPrefix
-            : eString.aliasesNone
+        ${eString.aliases} \`${command.aliases && command.aliases.length !== 0
+          ? command.aliases.join(", ") + eString.aliasesPrefix
+          : eString.aliasesNone
         }\`
         ${eString.slash} \`${command.usingInteraction ? eString.slashEnable : eString.slashDisable}\`
         `);

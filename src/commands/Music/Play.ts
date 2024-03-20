@@ -9,7 +9,7 @@ import { StartQueueDuration } from "../../utilities/QueueDuration.js";
 import { Manager } from "../../manager.js";
 import { Accessableby, Command } from "../../structures/Command.js";
 import { AutocompleteInteractionChoices, GlobalInteraction } from "../../@types/Interaction.js";
-import { CommandHandler } from "../../structures/CommandHandler.js";
+import type { CommandHandler } from "../../structures/CommandHandler.js";
 import { KazagumoPlayer, KazagumoTrack, SearchResultTypes } from "../../lib/main.js";
 
 export default class implements Command {
@@ -177,7 +177,7 @@ export default class implements Command {
 
     const Random =
       client.config.lavalink.AUTOCOMPLETE_SEARCH[
-        Math.floor(Math.random() * client.config.lavalink.AUTOCOMPLETE_SEARCH.length)
+      Math.floor(Math.random() * client.config.lavalink.AUTOCOMPLETE_SEARCH.length)
       ];
 
     const match = client.REGEX.some((match) => {
@@ -186,7 +186,7 @@ export default class implements Command {
 
     if (match == true) {
       choice.push({ name: url, value: url });
-      await (interaction as AutocompleteInteraction).respond(choice).catch(() => {});
+      await (interaction as AutocompleteInteraction).respond(choice).catch(() => { });
       return;
     }
 
@@ -211,6 +211,6 @@ export default class implements Command {
       });
     }
 
-    await (interaction as AutocompleteInteraction).respond(choice).catch(() => {});
+    await (interaction as AutocompleteInteraction).respond(choice).catch(() => { });
   }
 }

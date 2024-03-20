@@ -4,7 +4,7 @@ import humanizeDuration from "humanize-duration";
 import { Manager } from "../../manager.js";
 import { Playlist } from "../../database/schema/Playlist.js";
 import { Accessableby, Command } from "../../structures/Command.js";
-import { CommandHandler } from "../../structures/CommandHandler.js";
+import type { CommandHandler } from "../../structures/CommandHandler.js";
 
 export default class implements Command {
   public name = ["pl-all"];

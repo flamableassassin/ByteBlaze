@@ -14,7 +14,7 @@ import {
   CheckPermissionResultInterface,
   CheckPermissionServices,
 } from "../../services/CheckPermissionService.js";
-import { CommandHandler } from "../../structures/CommandHandler.js";
+import type { CommandHandler } from "../../structures/CommandHandler.js";
 import { Accessableby } from "../../structures/Command.js";
 import { ConvertToMention } from "../../utilities/ConvertToMention.js";
 import { RatelimitReplyService } from "../../services/RatelimitReplyService.js";
@@ -48,11 +48,11 @@ export default class {
     let subCommandName = "";
     try {
       subCommandName = interaction.options.getSubcommand();
-    } catch {}
+    } catch { }
     let subCommandGroupName;
     try {
       subCommandGroupName = interaction.options.getSubcommandGroup();
-    } catch {}
+    } catch { }
 
     const commandNameArray = [];
 
@@ -109,9 +109,9 @@ export default class {
           permissionResult.channel == "Self"
             ? selfErrorString
             : `${client.i18n.get(language, "error", "no_perms_channel", {
-                perm: permissionResult.result,
-                channel: permissionResult.channel,
-              })}`
+              perm: permissionResult.result,
+              channel: permissionResult.channel,
+            })}`
         )
         .setColor(client.color);
       await interaction.reply({
@@ -249,8 +249,7 @@ export default class {
 
       client.logger.info(
         import.meta.url,
-        `[COMMAND] ${commandNameArray.join("-")} used by ${
-          interaction.user.username
+        `[COMMAND] ${commandNameArray.join("-")} used by ${interaction.user.username
         } from ${interaction.guild.name} (${interaction.guild.id})`
       );
 

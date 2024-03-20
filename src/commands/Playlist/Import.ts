@@ -3,7 +3,7 @@ import { ConvertTime } from "../../utilities/ConvertTime.js";
 import { Manager } from "../../manager.js";
 import { Playlist } from "../../database/schema/Playlist.js";
 import { Accessableby, Command } from "../../structures/Command.js";
-import { CommandHandler } from "../../structures/CommandHandler.js";
+import type { CommandHandler } from "../../structures/CommandHandler.js";
 let playlist: Playlist | null;
 
 export default class implements Command {

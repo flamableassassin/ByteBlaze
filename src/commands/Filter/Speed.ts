@@ -2,7 +2,7 @@ import { ApplicationCommandOptionType, EmbedBuilder } from "discord.js";
 import delay from "delay";
 import { Manager } from "../../manager.js";
 import { Accessableby, Command } from "../../structures/Command.js";
-import { CommandHandler } from "../../structures/CommandHandler.js";
+import type { CommandHandler } from "../../structures/CommandHandler.js";
 
 
 export default class implements Command {

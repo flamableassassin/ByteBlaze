@@ -4,7 +4,7 @@ import { PageQueue } from "../../structures/PageQueue.js";
 import { Manager } from "../../manager.js";
 import { PlaylistTrack } from "../../database/schema/Playlist.js";
 import { Accessableby, Command } from "../../structures/Command.js";
-import { CommandHandler } from "../../structures/CommandHandler.js";
+import type { CommandHandler } from "../../structures/CommandHandler.js";
 
 export default class implements Command {
   public name = ["pl-detail"];

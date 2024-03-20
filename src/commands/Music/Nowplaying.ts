@@ -3,7 +3,7 @@ import { EmbedBuilder, Message, NewsChannel } from "discord.js";
 import { FormatDuration } from "../../utilities/FormatDuration.js";
 import { QueueDuration } from "../../utilities/QueueDuration.js";
 import { Accessableby, Command } from "../../structures/Command.js";
-import { CommandHandler } from "../../structures/CommandHandler.js";
+import type { CommandHandler } from "../../structures/CommandHandler.js";
 import { KazagumoPlayer, KazagumoTrack } from "../../lib/main.js";
 
 // Main code

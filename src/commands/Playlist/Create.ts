@@ -2,7 +2,7 @@ import { EmbedBuilder, ApplicationCommandOptionType } from "discord.js";
 import id from "voucher-code-generator";
 import { Manager } from "../../manager.js";
 import { Accessableby, Command } from "../../structures/Command.js";
-import { CommandHandler } from "../../structures/CommandHandler.js";
+import type { CommandHandler } from "../../structures/CommandHandler.js";
 
 export default class implements Command {
   public name = ["pl-create"];

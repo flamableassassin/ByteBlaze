@@ -1,6 +1,6 @@
 import { EmbedBuilder } from "discord.js";
 import { Accessableby, Command } from "../../structures/Command.js";
-import { CommandHandler } from "../../structures/CommandHandler.js";
+import type { CommandHandler } from "../../structures/CommandHandler.js";
 import { Manager } from "../../manager.js";
 
 export default class implements Command {

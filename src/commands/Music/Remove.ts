@@ -3,7 +3,7 @@ import { EmbedBuilder } from "discord.js";
 import { ConvertTime } from "../../utilities/ConvertTime.js";
 import { Manager } from "../../manager.js";
 import { Accessableby, Command } from "../../structures/Command.js";
-import { CommandHandler } from "../../structures/CommandHandler.js";
+import type { CommandHandler } from "../../structures/CommandHandler.js";
 import { KazagumoPlayer, KazagumoTrack } from "../../lib/main.js";
 
 // Main code

@@ -4,7 +4,7 @@ import { KazagumoLoop } from "../../@types/Lavalink.js";
 import { KazagumoPlayer } from "../../lib/main.js";
 import { AutoReconnectBuilderService } from "../../services/AutoReconnectBuilderService.js";
 import { Accessableby, Command } from "../../structures/Command.js";
-import { CommandHandler } from "../../structures/CommandHandler.js";
+import type { CommandHandler } from "../../structures/CommandHandler.js";
 
 export default class implements Command {
   public name = ["loop"];

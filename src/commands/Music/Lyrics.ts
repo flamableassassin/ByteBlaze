@@ -1,7 +1,7 @@
 import { ApplicationCommandOptionType, EmbedBuilder, Message } from "discord.js";
 import { Manager } from "../../manager.js";
 import { Accessableby, Command } from "../../structures/Command.js";
-import { CommandHandler } from "../../structures/CommandHandler.js";
+import type { CommandHandler } from "../../structures/CommandHandler.js";
 import { Lyricist } from "@execaman/lyricist";
 
 // Main code
