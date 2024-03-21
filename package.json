@@ -65,9 +65,7 @@
     "mysql2": "^3.6.3",
     "node-cron": "^3.0.3",
     "node-html-parser": "^6.1.12",
-    "nodemon": "^3.0.1",
     "pg": "^8.11.3",
-    "plsargs": "^0.1.6",
     "pm2": "^5.3.1",
     "pretty-ms": "^8.0.0",
     "recursive-readdir": "^2.2.3",
@@ -76,9 +74,12 @@
     "voucher-code-generator": "^1.3.0",
     "winston": "^3.11.0",
     "write-file-atomic": "^5.0.1",
-    "ws": "^8.14.2"
+    "ws": "^8.14.2",
+    "dotenv": "^16.3.1"
   },
   "devDependencies": {
+    "plsargs": "^0.1.6",
+    "nodemon": "^3.0.1",
     "@digitak/tsc-esm": "^3.1.4",
     "@types/chillout": "^5.0.4",
     "@types/common-tags": "^1.8.3",
@@ -98,7 +99,6 @@
     "@types/ws": "^8.5.8",
     "copy-dir": "^1.3.0",
     "dir-archiver": "^2.1.0",
-    "dotenv": "^16.3.1",
     "esm": "^3.2.25",
     "prettier": "^3.0.3",
     "tsx": "^3.14.0",
