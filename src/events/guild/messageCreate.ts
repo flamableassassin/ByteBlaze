@@ -38,7 +38,7 @@ export default class {
     if (GuildPrefix) PREFIX = GuildPrefix;
     else if (!GuildPrefix) PREFIX = String(await client.db.prefix.set(`${message.guild!.id}`, client.prefix));
 
-    if (message.content.match(mention)) {
+    if (message.content.match(mention) && false) {
       const mention_embed = new EmbedBuilder()
         .setAuthor({
           name: `${client.i18n.get(language, "event.message", "wel", {
