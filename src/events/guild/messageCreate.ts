@@ -86,6 +86,15 @@ export default class {
     const command = client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd) as string);
     if (!command) return;
 
+    // Checking blacklisted channels
+    if (process.env.CHANNELIDBLACKLIST && message.channelId) {
+      const channelIDs = process.env.CHANNELIDBLACKLIST.split(",").map(i => i.trim())
+      if (channelIDs.includes(message.channelId)) {
+        if (process.env.BLACKLISTEDMESSAGE) message.channel.send({ content: process.env.BLACKLISTEDMESSAGE })
+        return
+      }
+    }
+
     const setup = await client.db.setup.get(String(message.guildId));
 
     if (setup && setup.channel == message.channelId) return;

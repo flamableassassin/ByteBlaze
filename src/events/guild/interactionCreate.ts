@@ -28,7 +28,23 @@ const commandRateLimitManager = new RateLimitManager(1000);
 
 export default class {
   async execute(client: Manager, interaction: GlobalInteraction) {
+
     if (interaction.isAutocomplete()) return new AutoCompleteService(client, interaction);
+
+    // Checking blacklisted channels
+    if (process.env.CHANNELIDBLACKLIST && interaction.channelId) {
+      const channelIDs = process.env.CHANNELIDBLACKLIST.split(",").map(i => i.trim())
+      if (channelIDs.includes(interaction.channelId)) {
+        if (process.env.BLACKLISTEDMESSAGE) await interaction.reply({ content: process.env.BLACKLISTEDMESSAGE })
+        else {
+          // Sending then deleting the initial msg to get around discord not letting you ignore interactions 
+          const msg = await interaction.reply({ content: "." })
+          await msg.delete()
+        }
+        return
+      }
+    }
+
     if (!interaction.isChatInputCommand()) return;
     if (!interaction.guild || interaction.user.bot) return;
 
