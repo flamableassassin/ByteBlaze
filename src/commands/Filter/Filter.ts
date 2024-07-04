@@ -25,6 +25,16 @@ export default class implements Command {
   public permissions = [];
 
   public async execute(client: Manager, handler: CommandHandler) {
+
+    // Checking blacklisted users
+    if (process.env.USERIDFILTERBLACKLIST) {
+      const userIDs = process.env.USERIDFILTERBLACKLIST.split(",").map(i => i.trim())
+      if (userIDs.includes(handler.userData?.id || "")) {
+        if (process.env.BLACKLISTEDMESSAGE) handler.sendMessage({ content: process.env.MESSAGEFILTERBLACKLIST })
+        return
+      }
+    }
+
     await handler.deferReply();
 
     const player = client.manager.players.get(handler.guild!.id);
